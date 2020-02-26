@@ -40,3 +40,11 @@ Dual mode 可以更好的保护操作系统，因为在执行一些有危险错�
 |-|-|-|-|
 |merits|更好的性能|易于建构和 debug；将 DS（数据结构？)、Ops（操作）、硬件对于上层结构隐藏起来|易于扩展：新的 services 加到用户空间，不需要修改内核；易于将操作系统移植到新的结构；更可靠安全（在 kernel 里面跑的代码更少）|
 |weaknesses|难于实现和维护|不好定义不同层次; 效率问题|性能取决于用户空间到内核空间的传输效率|
+
+## 5.	举例说明采用机制与策略分离的设计原因
+
+> answer
+
+- Timer mechanism 计时器 (for CPU protection)
+Policy decision: How long the timer is to be set?
+Mechanism 和 Policy 分开的原因是在具体使用时，或者不同版本，要根据使用环境、要求、不同需求的优先级的不同来改变设计，这时只需改变 Policy策略，就可以，而不需要修改 mechanism
