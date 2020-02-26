@@ -30,6 +30,7 @@
 - 总体上来说，在执行一些必须在 kernel 里面执行的命令时，进入 kernel mode，执行完毕后返回 user mode
 >> 原因
 
+Dual-mode operation allows OS to protect itself and other system components
 Dual mode 可以更好的保护操作系统，因为在执行一些有危险错误（如非法访问并尝试修改越界数据，修改操作系统只读文件等）或恶意程序时，由于需要进入 kernel mode 而需要额外的权限，故可以避免一部分错误的发生
 
 ## 4.	分析Monolithic结构，层次化结构，模块化结构和微内核结构的优劣
