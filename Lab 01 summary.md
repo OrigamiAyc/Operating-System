@@ -51,3 +51,8 @@ Remind that you must be in the <font color=red>`/usr`</font> path
 #### in the Ubuntu system
 
 You must create a 'hdc' dir first, then do the `mount` command.
+
+有一个奇怪的···在之前 `umount` 的 dir 下挂载新的文件系统，会报错(俺也不知道为啥)
+```shell
+mount: /home/stark/oslab/Linux-0.11/hdc: failed to setup loop device for /home/stark/oslab/Linux-0.11/hdc-0.11.img.
+```
