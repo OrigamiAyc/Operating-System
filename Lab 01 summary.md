@@ -30,7 +30,7 @@ If you try to do the command
 ```shell
 / # mv 1.txt dir1
 ```
-you might face the following error: `mv: 1.txt: Not owner
+you might face the following error: `mv: 1.txt: Not owner`
 
 ## Task Three
 
@@ -47,3 +47,7 @@ During "查看Linux0.11文件", when you are executing this command:
 / # more hello.txt
 ```
 Remind that you must be in the <font color=red>`/usr`</font> path
+
+#### in the Ubuntu system
+
+You must create a 'hdc' dir first, then do the `mount` command.
