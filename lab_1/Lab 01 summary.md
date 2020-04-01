@@ -56,3 +56,7 @@ You must create a 'hdc' dir first, then do the `mount` command.
 ```shell
 mount: /home/stark/oslab/Linux-0.11/hdc: failed to setup loop device for /home/stark/oslab/Linux-0.11/hdc-0.11.img.
 ```
+
+#### While unmounting a file system
+
+The old files might remain there, so make sure you've deleted them before you redo this experiment.
