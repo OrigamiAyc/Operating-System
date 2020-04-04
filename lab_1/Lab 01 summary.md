@@ -60,3 +60,7 @@ mount: /home/stark/oslab/Linux-0.11/hdc: failed to setup loop device for /home/s
 #### While unmounting a file system
 
 The old files might remain there, so make sure you've deleted them before you redo this experiment.
+
+## While committing
+
+Remember that on MacOS, there's NO embedded FTP file installed, so use a Ubuntu (not xUbuntu) to commit your homework
