@@ -28,7 +28,7 @@
 
 <img src="/Users/lapland/Library/Application Support/typora-user-images/image-20200313211941836.png" alt="image-20200313211941836" style="zoom:100%;" />
 
-> A : 
+> A :
 >
 > The PID values are as the table below :
 
@@ -45,10 +45,11 @@
 
 <img src="/Users/lapland/Library/Application Support/typora-user-images/image-20200313212707825.png" alt="image-20200313212707825" style="zoom:100%;" />
 
-> A : 
+> A :
 
 ```powershell
-CHILD: 0CHILD: -1CHILD: -4CHILD: -9CHILD: -16CHILD: 0CHILD: -1CHILD: -4CHILD: -9CHILD: -16
+CHILD: 0 CHILD: -1 CHILD: -4 CHILD: -9 CHILD: -16 # LINE X
+PARENT: 0 PARENT: -1 PARENT: -4 PARENT: -9 PARENT: -16 # LINE Y
 ```
 
 > Note : Cause this program does *not* have a line break at its output...So the results were put altogether, yet it seems that there *is* a blank space between ':' and '%'.

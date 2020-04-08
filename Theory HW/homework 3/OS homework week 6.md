@@ -2,30 +2,30 @@
 
 ### Problem 1
 
-> Q : 
+> Q :
 >
 > What are the two models of interprocess communication? What are the strengths and weaknesses of the two approaches?
 
-> A : 
+> A :
 
 1. Shared memory
-   - Strengths : 
+   - Strengths :
      - Faster in passing informations
      - Save more time while visiting statistics, since using ordinary memory visit as a visiting method
-     - Able to pass large amount of statistics 
-   - Weaknesses : 
+     - Able to pass large amount of statistics
+   - Weaknesses :
      - May cause **race condition**
 2. Message passing
-   - Strengths : 
+   - Strengths :
      - Easier to implement in distributed system
      - No problem of race condition
-   - Weaknesses : 
+   - Weaknesses :
      - May use more time, since need the kernel to be in the job
      - Limited modularity (hard coding) [of direct communication]
 
 ### Problem 2
 
-> Q : 
+> Q :
 >
 > What are the benefits of multi-threading? Which of the following components of program state are shared across threads in a multithreaded process?
 >
@@ -37,7 +37,7 @@
 >
 > ​		d. Stack memory
 
-> A : 
+> A :
 
 - Benefits of multi-threading :
   1. Responsiveness and multi-tasking
@@ -48,19 +48,19 @@
 
 ### Problem 3
 
-> Q : 
+> Q :
 >
 > Consider the following code segment:
 >
 > ```c
 > pid_t pid;
 > pid = fork();
-> 
+>
 > if (pid == 0){	/* child process */
 > 	fork();
 > 	thread create( . . .);
 > }
-> 
+>
 > fork();
 > ```
 >
@@ -68,7 +68,7 @@
 >
 > b. How many unique threads are created?
 
-> A : 
+> A :
 >
 > > a.
 
@@ -138,7 +138,7 @@ LINE P : PARENT: value = 0
 
 > Q : What are the differences between ordinary pipe and named pipe?
 
-> A : 
+> A :
 
 |                       oridinary pipe                        |                          named pipe                          |
 | :---------------------------------------------------------: | :----------------------------------------------------------: |
@@ -152,22 +152,22 @@ LINE P : PARENT: value = 0
 
 > Q : What is race condition? Which property can guarantee that race condition will not happen?
 
-> A : 
+> A :
 
 - Race condition
   - Means the outcome of an execution depends on a particular order in which the shared resource is accessed.
-- Property 
+- Property
   - Mutual excultion
 
 ### Problem 7
 
-> Q : 
+> Q :
 >
 > The first known correct software solution to the critical-section problem for two processes was developed by Dekker. The two processes, P0 and P1, share the following variables:
 >
 > ```c
 > boolean flag[2]; /* initially false */
-> 
+>
 > int turn;
 > ```
 >
@@ -190,18 +190,18 @@ do
 			flag[i] = true;
 		}
 	}
-    
+
 		/* critical section */
-    
+
 	turn = j;
 	flag[i] = false;
-    
+
 		/* remainder section */
-    
+
 } while (true);
 ```
 
-> A : 
+> A :
 
 1. **MutualExclusion**. *No two processes could be simultaneously inside their critical sections*
 
@@ -219,10 +219,10 @@ do
 
 > Q : Can strict alternation and Peterson’s solution sastify all the requirements as a solution of the critical-section problem? Please explain why
 
-> A : 
+> A :
 
 - The strict alternation does not satisfy the **Requirement #3**, which is '*No process running outside its critical section should block other processes.*'
-  - The reason is that if process 1 is in turn but not executing, it cannot pass the turn to process 0, which is waiting in the principal of strict alternation. 
+  - The reason is that if process 1 is in turn but not executing, it cannot pass the turn to process 0, which is waiting in the principal of strict alternation.
 - Peterson's solution have a hidden problem that violates the **Requirement #3**, which is '*No process running outside its critical section should block other processes.*'
   - The priority inversion problem is brought by the conflict that a high priority process owns the CPU resources, but cannot enter the critical region to execute, while a low priority process sits in the critical region not scheduled for a long time. In this case, both processes are blocked.
 
@@ -230,7 +230,7 @@ do
 
 > Q : What is semaphore? How to use semaphore to implement section entry and section exit (no busy waiting)? Please give the code
 
-> A : 
+> A :
 
 - Semaphore is a data type (additional shared object) that is accessed only through two standard **atomic** operations : `down()` (or 'P', or `wait()`) and `up()` (or 'V', or `signal()`)
 - Code segment :
@@ -275,7 +275,6 @@ void up(semaphore *s)
 - Deadlock is a phenomenon that two or more threads block each other when executing, due to a resource demand problem, that every thread in the group is waiting for a resource held by another thread, while holding some resources that others demand, forming one/several waiting circle(s).
 - The 4 requirements :
   1. **Requirement #1: Mutual Exclusion**
-  2. **Requirement #1: Mutual Exclusion**
+  2. **Requirement #2: Hold and Wait**
   3. **Requirement #3: No preemption**
   4. **Requirement #4. Circular wait**
-
