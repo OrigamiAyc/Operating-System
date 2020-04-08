@@ -63,4 +63,4 @@ The old files might remain there, so make sure you've deleted them before you re
 
 ## While committing
 
-Remember that on MacOS, there's NO embedded FTP file installed, so use a Ubuntu (not xUbuntu) to commit your homework
+Remember that on MacOS, there's NO embedded FTP file installed, so use a Ubuntu (not xUbuntu) to commit your homework. The server is in the <font color=red>'files'</font> app, like the screenshot attached in this folder.
