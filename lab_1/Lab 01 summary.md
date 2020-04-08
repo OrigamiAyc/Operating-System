@@ -56,6 +56,11 @@ You must create a 'hdc' dir first, then do the `mount` command.
 ```shell
 mount: /home/stark/oslab/Linux-0.11/hdc: failed to setup loop device for /home/stark/oslab/Linux-0.11/hdc-0.11.img.
 ```
+>疑似解决方案 （经验，不一定可行）
+1. 删除 hdc 文件夹 以及挂载的文件系统里面所有更改（添加 ）的文件（夹）
+2. 重启 Ubuntu
+3. 多试几次
+4. df -h（这个我最不理解）
 
 #### While unmounting a file system
 
