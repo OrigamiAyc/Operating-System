@@ -41,9 +41,9 @@
 >
 > Consider the exponential average formula used to predict the length of the next CPU burst. What are the implications of assigning the following values to the parameters used by the algorithm?
 >
-> a. ![img](file:////private/var/folders/mg/xn565dr91jb9kg1lds_h9f200000gn/T/com.kingsoft.wpsoffice.mac/wps-lapland/ksohtml/wps8UUx2B.jpg)= 0 and ![img](file:////private/var/folders/mg/xn565dr91jb9kg1lds_h9f200000gn/T/com.kingsoft.wpsoffice.mac/wps-lapland/ksohtml/wpsZL6fQy.jpg) = 100 milliseconds
+> a. $\alpha= 0$ and  $\tau_0= 100\ milliseconds$
 >
-> b. ![img](file:////private/var/folders/mg/xn565dr91jb9kg1lds_h9f200000gn/T/com.kingsoft.wpsoffice.mac/wps-lapland/ksohtml/wpskqe4F4.jpg)= 0.99 and ![img](file:////private/var/folders/mg/xn565dr91jb9kg1lds_h9f200000gn/T/com.kingsoft.wpsoffice.mac/wps-lapland/ksohtml/wpst0ZZFz.jpg) = 10 milliseconds
+> b. $\alpha= 0.99$ and  $\tau_0= 10\ milliseconds$
 
 > A :
 
@@ -190,9 +190,16 @@ SJF minimum average waiting time 最小
 >
 > b. The time quantum is 10 milliseconds
 
-> A :
+> A : We assume that only when all I/O task are in *waiting* condition, can CPU task get into CPU.
 >
+
+> a:
 >
+> A task would face context switching after it has been running for 1ms, whether it's an I/O task or CPU task, so the CPU utilisation is $\frac{1}{1+0.1}=0.909$
+>
+> b:
+>
+> When CPU resource is allocated to an I/O task, every I/O task would take 1ms, then go to do I/O operations, so the CPU would do context switch.
 
 ### Problem 6
 
