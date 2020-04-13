@@ -4,11 +4,11 @@
 
 ### Problem 1
 
-> Q :
+> <font color=deeppink>**Q :**</font>
 >
 > Consider the deadlock situation that can occur in the dining-philosophers problem when the philosophers obtain the chopsticks one at a time. Discuss how the four necessary conditions for deadlock hold in this setting. Describe a deadlock-free solution, and discuss which necessary conditions are eliminated in your solution
 
-> A :
+> <font color=deeppink>**A :**</font>
 
 - <font color="olive">The four necessary conditions for deadlock are :</font>
   - Mutual Exclusion :
@@ -37,7 +37,7 @@
 
 ### Problem 2
 
-> Q :
+> <font color=deeppink>**Q :** </font>
 >
 > Consider the exponential average formula used to predict the length of the next CPU burst. What are the implications of assigning the following values to the parameters used by the algorithm?
 >
@@ -45,13 +45,13 @@
 >
 > b. $\alpha= 0.99$ and  $\tau_0= 10\ milliseconds$
 
-> A :
+> <font color=deeppink>**A :**</font>
 
 <font color=red>The original formula is on page 60 of Ch6.pdf</font>
 
 $$\tau_{n+1}=\alpha t_n + (1 - \alpha) \tau_n$$
 
-> a :
+> <font color=olive>**a :**</font>
 
 The formula now becomes $\tau_{n+1} = \tau_n, \tau_0 = 100ms$ .
 
@@ -59,7 +59,7 @@ The formula now becomes $\tau_{n+1} = \tau_n, \tau_0 = 100ms$ .
 
 - $\tau_0 = 100ms$ means that the perdiction begins at 100ms.
 
-> b :
+> <font color=olive>**b :**</font>
 
 The formula now becomes $\tau_{n+1} = 0.99t_n + 0.01\tau_n, \tau_0 = 10ms$ .
 
@@ -68,7 +68,7 @@ The formula now becomes $\tau_{n+1} = 0.99t_n + 0.01\tau_n, \tau_0 = 10ms$ .
 
 ### Problem 3
 
-> Q :
+> <font color=deeppink>**Q :**</font>
 >
 > Consider the following set of processes, with the length of the CPU burst time given in milliseconds:
 >
@@ -92,9 +92,9 @@ The formula now becomes $\tau_{n+1} = 0.99t_n + 0.01\tau_n, \tau_0 = 10ms$ .
 
 
 
-> A :
+> <font color=deeppink>**A :**</font>
 
-> > a :
+> > <font color=olive>**a :**</font>
 
 **I would use date to show the time, each day represents 1ms, **
 
@@ -136,11 +136,11 @@ gantt
 	P5	: des5, after des2, 5d
 ```
 
-<font color=blue>RR</font> （~~这个实在画不出来了，~~我把这4个重新在 Excel 里面画了一遍。。。）
+<font color=blue>RR</font> （~~这个实在画不出来了，~~我把这4个重新在 Excel 里面画了一遍。。。每一格是 1ms，后面的甘特图同理）
 
 ![gantt](/Users/lapland/GitHub/Operating-Sysem/Theory HW/homework 2/gantt.png)
 
-> > b : in P1~P5 order
+> > <font color=olive>**b :**</font> in P1~P5 order
 
 | algorithm |  turnaround time   |
 | :-------: | :----------------: |
@@ -149,7 +149,7 @@ gantt
 | priority  |  16, 1, 17, 19, 6  |
 |    RR     |  19, 2, 7, 4, 14   |
 
-> > c :
+> > <font color=olive>**c :**</font>
 
 | algorithm |   Waiting time    | Average Waiting Time |
 | :-------: | :---------------: | :------------------: |
@@ -158,13 +158,13 @@ gantt
 | priority  |  6, 0, 16, 17, 1  |          8           |
 |    RR     |   9, 1, 5, 3, 9   |         5.4          |
 
-> > d :
+> > <font color=olive>**d :**</font>
 
 SJF minimum average waiting time 最小
 
 ### Problem 4
 
-> Q :
+> <font color=deeppink>**Q :**</font>
 >
 > Which of the following scheduling algorithms could result in starvation?
 >
@@ -176,13 +176,13 @@ SJF minimum average waiting time 最小
 >
 > d. Priority
 
-> A :
+> <font color=deeppink>**A :**</font>
 >
-> abd
+> $\bf{a\,b\,d}$
 
 ### Problem 5
 
-> Q :
+> <font color=deeppink>**Q :**</font>
 >
 > Consider a system running ten I/O-bound tasks and one CPU-bound task. Assume that the I/O-bound tasks issue an I/O operation once for every millisecond of CPU computing and that each I/O operation takes 10 milliseconds to complete. Also assume that the context-switching overhead is 0.1millisecond and that all processes are long-running tasks. Describe is the CPU utilization for a round-robin scheduler when:
 >
@@ -190,14 +190,13 @@ SJF minimum average waiting time 最小
 >
 > b. The time quantum is 10 milliseconds
 
-> A : We assume that only when all I/O task are in *waiting* condition, can CPU task get into CPU.
->
+> <font color=deeppink>**A :**</font> We assume that only when all I/O task are in *waiting* condition, can CPU task get into CPU.
 
-> a:
+> <font color=olive>**a:**</font>
 >
 > A task would face context switching after it has been running for 1ms, whether it's an I/O task or CPU task, so the CPU utilisation is $\frac{1}{1+0.1}=0.909$
 >
-> b:
+> <font color=olive>**b:**</font>
 >
 > When CPU resource is allocated to an I/O task, every I/O task would take 1ms, then go to do I/O operations, so the CPU would do context switch. The Gantt chart is like below (draw in Numbers):
 >
@@ -207,6 +206,44 @@ SJF minimum average waiting time 最小
 
 ### Problem 6
 
-> Q :
+> <font color=deeppink>**Q :**</font>
 >
 > Give an example to illustrate under what circumstances rate-monotonic scheduling is inferior to earliest-deadline-first scheduling in meeting the deadlines associated with processes?
+
+> <font color=deeppink>**A :**</font>
+>
+> > <font color=green>Example</font> : There are total *two* processes, named P1 & P2. Their arrival gap & tasking time are shown as below (we assume that both P1 & P2 arrived at 0ms, in the order of 1,2:
+> >
+> > P1 : $d_1(gap) = 50ms, t_1(task) = 25ms$
+> >
+> > P2 : $d_2(gap)=80ms,t_2(task)=35ms$
+>
+> 
+>
+> > <font color=green>Rate-monotonic scheduling</font> :
+> >
+> > The Gantt chart is like this (drawn in OneNote) :
+> >
+> > ![Screenshot 2020-04-13 at 6.05.26 PM](/Users/lapland/Library/Application Support/typora-user-images/Screenshot 2020-04-13 at 6.05.26 PM.png)
+> >
+> > So when the deadline of P2 comes, the actual task time of P2 is $25+5=30<35$ , thus P2's task is not completed before its DDL.
+>
+> 
+>
+> > However, the *earlist-deadline-first* scheduling can make sure that both processes can finish their task before ddl.
+>
+> 
+>
+> > <font color=green>Earlist-deadline-first scheduling</font> :
+> >
+> > The Gantt chart is like this (drawn in OneNote) :
+> >
+> > ![Screenshot 2020-04-13 at 7.19.19 PM](/Users/lapland/Library/Application Support/typora-user-images/Screenshot 2020-04-13 at 7.19.19 PM.png)
+> >
+> > (*When time reaches 50ms, the ddl of P1 is at 100ms, while that of P2 is at 80ms, therefore P2 is to be done*)
+> >
+> > So P1 & P2 can both done their tasks.
+>
+> 
+>
+> > So we say that under this circumstance rate-monotonic scheduling is inferior to earliest-deadline-first scheduling in meeting the deadlines associated with processes.
