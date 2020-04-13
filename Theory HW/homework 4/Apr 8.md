@@ -199,7 +199,11 @@ SJF minimum average waiting time 最小
 >
 > b:
 >
-> When CPU resource is allocated to an I/O task, every I/O task would take 1ms, then go to do I/O operations, so the CPU would do context switch.
+> When CPU resource is allocated to an I/O task, every I/O task would take 1ms, then go to do I/O operations, so the CPU would do context switch. The Gantt chart is like below (draw in Numbers):
+>
+> ![Screenshot 2020-04-13 at 2.21.40 PM](/Users/lapland/Library/Application Support/typora-user-images/Screenshot 2020-04-13 at 2.21.40 PM.png)
+>
+> Therefore the CPU utilisation is $\frac{10+10}{11\cdot 0.1+20}=0.948$.
 
 ### Problem 6
 
