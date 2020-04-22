@@ -10,15 +10,76 @@
 
 > <font color=deeppink>**A :**</font>
 
+<font color=purple>The Original Dining Code</font>
+
+```c
+void philosopher(int i)
+{
+    while(true)
+    {
+		think();
+		take(i); // We suppose this is the one on the left
+		take((i + 1) % N); // The one on the right
+        
+        eat(); // Critical Section
+		
+        put(i); // Also left first
+		put((i + 1) % N); // The right one
+    }
+}
+void take(int i)
+{
+	down(&i); // To make sure of a Mutual Exclusion
+}
+```
+
+
+
 - <font color="olive">The four necessary conditions for deadlock are :</font>
   - Mutual Exclusion :
     - When one philosopher is using one chopstick, another one cannot rob the chopstick from him
   - Hold and Wait :
-    - Every philosopher is holding a chopstick, while waiting for another chopstick held by another philosopher
+    - Every philosopher is holding a chopstick, while waiting for the other chopstick held by another philosopher
   - No Preemption :
-    - Only when a philosopher has finished eating, can he put down both his chopsticks.
+    - Only when a philosopher has finished eating, can he put down both his chopsticks. No one is able to rob other's chopstick.
   - Circular Wait :
-    - A philosopher only can use the chopsticks on his side. Every philosopher is holding one chopstick, while waiting the other one, which is exactly held by his neighbour, so every philosopher is holding one chopstick, hungry but not eating.
+    - A philosopher only can use the chopsticks on his side. Every philosopher is holding one chopstick, while waiting the other one, which is exactly held by his neighbour, so every philosopher is holding one chopstick, hungry but not eating. Thus forms a *Circular Waiting*.
+
+<font color=purple>Deadlock-free Solution Code</font>
+
+```c
+void philosophor()
+{
+    while (true)
+    {
+		think();
+		take(i); // This function includes both sides...
+        eat();
+        up(&chop[i]);
+        up(&(chop[(i + 1) % N]));
+    }
+}
+void take(int i)
+{
+    while (true)
+    {
+		down(&chop[i]);
+		if (isUsed[(i + 1) % N])
+        {
+            up(&chop[i]); // If the one on the right refuses to be taken, then put down the left one
+			sleep();
+        }
+		else
+        {
+			down(&(chop[(i + 1) % N]));
+            break;
+		}
+    }
+}
+```
+
+
+
 - <font color=olive>Descripition of a deadlock-free solution :</font>
   - When a philosopher starts eating :
     - He should first be hungry :
@@ -51,6 +112,8 @@
 
 $$\tau_{n+1}=\alpha t_n + (1 - \alpha) \tau_n$$
 
+> $t_n$ represents *Most Recent Information*, while $\tau_k$ refers to *Last Prediction* ($\tau_0$ means the *Predicted Time* at the beginning).
+
 > <font color=olive>**a :**</font>
 
 The formula now becomes $\tau_{n+1} = \tau_n, \tau_0 = 100ms$ .
@@ -63,7 +126,7 @@ The formula now becomes $\tau_{n+1} = \tau_n, \tau_0 = 100ms$ .
 
 The formula now becomes $\tau_{n+1} = 0.99t_n + 0.01\tau_n, \tau_0 = 10ms$ .
 
-- This formula makes prediction mainly depending on *most recent information*, as the $\alpha$ value shows.
+- This formula makes prediction *mainly* depending on *most recent information*, as the $\alpha$ value shows.
 - $\tau_0 = 10ms$ means that the perdiction begins at 10ms.
 
 ### Problem 3
@@ -136,17 +199,17 @@ gantt
 	P5	: des5, after des2, 5d
 ```
 
-<font color=blue>RR</font> （~~这个实在画不出来了，~~我把这4个重新在 Excel 里面画了一遍。。。每一格是 1ms，后面的甘特图同理）
+<font color=blue>RR</font> （~~这个实在画不出来了，~~我把这4个重新在 Numbers 里面画了一遍。。。每一格是 1ms，后面的甘特图同理）![Screenshot 2020-04-20 at 7.25.53 PM](/Users/lapland/Library/Application Support/typora-user-images/Screenshot 2020-04-20 at 7.25.53 PM.png)
 
-![gantt](/Users/lapland/GitHub/Operating-Sysem/Theory HW/homework 2/gantt.png)
+
 
 > > <font color=olive>**b :**</font> in P1~P5 order
 
 | algorithm |  turnaround time   |
 | :-------: | :----------------: |
 |   FCFS    | 10, 11, 13, 14, 19 |
-|    SJF    |   19, 1, 2, 4, 9   |
-| priority  |  16, 1, 17, 19, 6  |
+|    SJF    |   19, 1, 4, 2, 9   |
+| priority  |  16, 1, 18, 19, 6  |
 |    RR     |  19, 2, 7, 4, 14   |
 
 > > <font color=olive>**c :**</font>
@@ -155,7 +218,7 @@ gantt
 | :-------: | :---------------: | :------------------: |
 |   FCFS    | 0, 10, 11, 13, 14 |         9.6          |
 |    SJF    |   9, 0, 2, 1, 4   |         3.2          |
-| priority  |  6, 0, 16, 17, 1  |          8           |
+| priority  |  6, 0, 16, 18, 1  |          8           |
 |    RR     |   9, 1, 5, 3, 9   |         5.4          |
 
 > > <font color=olive>**d :**</font>
@@ -247,3 +310,4 @@ SJF minimum average waiting time 最小
 > 
 >
 > > So we say that under this circumstance rate-monotonic scheduling is inferior to earliest-deadline-first scheduling in meeting the deadlines associated with processes.
+
