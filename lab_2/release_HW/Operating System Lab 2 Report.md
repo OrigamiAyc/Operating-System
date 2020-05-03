@@ -93,3 +93,6 @@
 
 ![shell_self_result_qemu](/Users/lapland/Library/Application Support/typora-user-images/Screenshot 2020-05-03 at 10.07.44 PM.png)
 
+### P.S.
+
+关于实验视频的说明：第一题的视频是录了两个然后合并起来的，但是把回答问题的部分放到前面了
