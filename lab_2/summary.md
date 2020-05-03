@@ -108,11 +108,22 @@ xxx指上面那个**print_str2num**
 
 ### 使用上述系统调用实现三个进程创建相关的函数
 
-这里需要写的并不多其实
+这里需要写的并不多其实，其中**os_close**已经实现
 
 ##### `os_open()`
 
-fork函数，以及对于父子进程的**if**分支；一个 execl 函数调用
+fork函数，以及对于父子进程的**if**分支；一个 execl 函数调用；以及 pipe_fd 的填空
+
+`dup2`是一个重定向工作，将STDOUT定向到和管道出口一样的位置（或者IN和入口），参考：ch5 part1 37页前后
 
 ##### `os_system`
 
+emm依然不是很理解。。。
+
+### Linux-0.11下的编译运行
+
+一些可能出现的问题：
+
+- 出现`Kernel panic`：更换 hdc-0.11 镜像文件
+- 出现`parse error before 'print_val'`：加上 `__LIBRARY__`
+- 
