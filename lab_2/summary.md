@@ -12,11 +12,11 @@
 需要添加的文件里面：
 
 - `system_call.s` 和 `sys_xxx` 都位于源码里面（就是 `~/oslab/Linux-0.11` 目录）=·=
-	- `kernel/system_calls.s`，参数加上2
-	- `include/linux/sys.h`，放最后面就行（原型和 table 表（就是最后面黑色的一大堆））
+	- `./kernel/system_calls.s`，参数加上2
+	- `./include/linux/sys.h`，放最后面就行（原型和 table 表（就是最后面黑色的一大堆））
 - `unistd.h` 是既要在挂载的文件系统里面修改，<font color=coral>又要在源码修改的</font>
-	- `include/unistd.h`
-	- `hdc/usr/include/unistd.h`
+	- `./include/unistd.h`
+	- `./hdc/usr/include/unistd.h`
 
 > 以及，关于为什么建议不要直接拷贝linux源码中的 `unistd.h` 文件，助教大大的官方解释是：<font color=coral>内容其实是差不多的，但是Linux 0.11 不支持` // `这种形式的注释，但是Linux源码中的这个文件有这个注释，所以说需要换成`/* */` </font>
 
@@ -126,4 +126,5 @@ emm依然不是很理解。。。
 
 - 出现`Kernel panic`：更换 hdc-0.11 镜像文件
 - 出现`parse error before 'print_val'`：加上 `__LIBRARY__`
-- 
+- 出现`lab2_shell: ENOENT`：是 error no entry 的缩写，就是没这个文件/目录；检查 gcc 的报错
+- 提交的时候没有权限：`sudo chmod 777 <filename>`即可
