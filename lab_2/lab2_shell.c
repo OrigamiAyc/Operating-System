@@ -76,8 +76,8 @@ int os_popen(const char* cmd, const char type){
         }
         else
         {
-            close(pipe_fd[1]);
-            proc_fd = pipe_fd[0];
+            close(pipe_fd[0]);
+            proc_fd = pipe_fd[1];
         }
         child_pid[proc_fd] = pid;
         return proc_fd;
@@ -210,7 +210,7 @@ int main() {
                 printf("cmd2: %s\n", cmd2);
 
 				/* 5.1 运行cmd1，并将cmd1标准输出存入buf中 */
-				if ((pipe_fd = os_popen(cmd1, 'r')) = NULL)
+				if ((pipe_fd = os_popen(cmd1, 'r')) == NULL)
 				{
 					printf("os_popen() pipe open error\n"); /* os_popen函数内部错误返回NULL，见定义 */
 					exit(1);
@@ -227,7 +227,7 @@ int main() {
 					printf("os_pipe() pipe open error\n");
 					exit(1);
 				}
-				if ((write(pipe_fd, buf, byte_num)) == -1)
+				if ((write(pipe_fd, buf, infro_num)) == -1)
 				{
 					printf("write() error\n");
 					exit(1);
