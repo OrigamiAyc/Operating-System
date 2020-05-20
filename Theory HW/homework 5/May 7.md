@@ -44,7 +44,7 @@ $50+50=100ns$（visit page table & use the address to visit statistics)
 
 **b.**
 
-$75\%*2+25\%*(2+50)=14.5ns$
+$75\%*(2+50)+25\%*(2+50+50)=64.5ns$
 
 ### Question 3
 
@@ -85,7 +85,7 @@ We assume that the page-fault rate is $p$ , then we have :
 
 $100ns*(1-p)+(0.3*8ms+0.7*20ms)*p<200ns$
 
-Therefore, $p<6\cdot10^6$
+Therefore, $p<6\cdot10^{-6}$
 
 ### Question 5
 
