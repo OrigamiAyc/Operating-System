@@ -74,13 +74,13 @@
 
 **6** unique processes are created :
 
-![image-20200325151656467](pics/image-20200325151656467.png)
+![image-20200325151656467](../pics/image-20200325151656467.png)
 
 > > b.
 
 **10** unique threads are created :
 
-![image-20200325152515920](pics/image-20200325152515920.png)
+![image-20200325152515920](../pics/image-20200325152515920.png)
 
 > Note : The threads shown in the pic (1 & 2), are in two different processes actually
 
