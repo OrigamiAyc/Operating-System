@@ -74,13 +74,13 @@
 
 **6** unique processes are created :
 
-![image-20200325151656467](/Users/lapland/Library/Application Support/typora-user-images/image-20200325151656467.png)
+![image-20200325151656467](pics/image-20200325151656467.png)
 
 > > b.
 
 **10** unique threads are created :
 
-![image-20200325152515920](/Users/lapland/Library/Application Support/typora-user-images/image-20200325152515920.png)
+![image-20200325152515920](pics/image-20200325152515920.png)
 
 > Note : The threads shown in the pic (1 & 2), are in two different processes actually
 
@@ -140,13 +140,13 @@ LINE P : PARENT: value = 0
 
 > A :
 
-|                       oridinary pipe                        |                          named pipe                          |
+|                       ordinary pipe                        |                          named pipe                          |
 | :---------------------------------------------------------: | :----------------------------------------------------------: |
 |                        Without name                         |                          With name                           |
-| Used only for related processes (parent-child relationship) | No parent-child relationship is necessary (processes must resideon the same machine) |
+| Used only for related processes (parent-child relationship) | No parent-child relationship is necessary (processes must reside on the same machine) |
 |           Unidirectional (one-way communication)            |      Communication is bidirectional (still half-duplex)      |
 |      Ceases to exist after communication has finished       |       Continue to exist until it is explicitly deleted       |
-|   Allow communication in standardproducer-consumer style    | Several processes can use the named pipe for communication (may have several writers) |
+|   Allow communication in standard producer-consumer style    | Several processes can use the named pipe for communication (may have several writers) |
 
 ### Problem 6
 
@@ -157,7 +157,7 @@ LINE P : PARENT: value = 0
 - Race condition
   - Means the outcome of an execution depends on a particular order in which the shared resource is accessed.
 - Property
-  - Mutual excultion
+  - Mutual exculsion
 
 ### Problem 7
 
