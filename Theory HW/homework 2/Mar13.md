@@ -12,7 +12,9 @@
 
 
 
-> A : 16 (Including the initial process of this program)
+> A : 
+
+16 (Including the initial process of this program)
 
 ### Problem 2
 
@@ -20,7 +22,9 @@
 
 <img src="/Users/lapland/Library/Application Support/typora-user-images/image-20200313210600306.png" alt="image-20200313210600306" style="zoom:100%;" />
 
->A : When the `execlp()` function call is failed to be called, it will not reset the process but continue to execute the printf func, with a return value of `-1`.
+>A : 
+
+When the `execlp()` function call is failed to be called, it will not reset the process but continue to execute the printf func, with a return value of `-1`.
 
 ### Problem 3
 
@@ -29,8 +33,8 @@
 <img src="/Users/lapland/Library/Application Support/typora-user-images/image-20200313211941836.png" alt="image-20200313211941836" style="zoom:100%;" />
 
 > A :
->
-> The PID values are as the table below :
+
+The PID values are as the table below :
 
 | position | value |
 | :------: | :---: |
@@ -67,24 +71,32 @@ int main(void) {
 }
 ```
 
-> A : LINE X will *not* be actually executed (except for the condition that the function call `execl` is not executed cause an error has occurred).
->
-> The reason is that the system call of `exec()` replaces the current process image with a new process image. While the new one is there to execute, the original process code or statistics are covered and will not be executed.
+> A : 
+
+LINE X will *not* be actually executed (except for the condition that the function call `execl` is not executed since an error has occurred).
+
+The reason is that the system call of `exec()` replaces the current process image with a new process image. While the new one is there to execute, the original process code or statistics are covered and will not be executed.
 
 ### Problem 6
 
 > Q : Explain why “terminated state” is necessary for processes.
 
-> A : In a `fork(), exec(), wait()` , a parent process is blocked when using a `wait()` call, and only can wake up again only when receiving a SIGCHLD *from an `exit()` call made by the dying child process*, destroying the zombie process, and move on to its former execution.
->
-> I mean, when the child process is terminated, the kernel notifies the parent of the child process about the termination of its child.
->
-> So, if there isn't a "terminated state", the parent will never be waken up, and the zombie will never be eliminated.
+> A : 
+
+In a `fork(), exec(), wait()` , a parent process is blocked when using a `wait()` call, and only can wake up again only when receiving a SIGCHLD *from an `exit()` call made by the dying child process*, destroying the zombie process, and move on to its former execution.
+
+**Terminated state is a mechanism that child process give feedback information to its parent. It can be used for waking up parent process and notifying parent process of the termination information of its child.**
+
+When the child process is terminated, the kernel notifies the parent of the child process about the termination of its child.
+
+So, if there isn't a "terminated state", the parent will never be waken up, and the zombie will never be eliminated.
 
 ### Problem 7
 
 > Q : Explain what a zombie process is and when a zombie process will be eliminated (i.e., its PCB entry is removed from kernel).
 
-> A : When a process ends its execution and invokes `exit()`, it changes into terminated state, keeping its storage in the kernel-space memory to a minimum. It's called a *zombie process* before it's given a clean death by its parent's `wait()` call.
->
-> A zombie process is eliminated either when its SIGCHLD is picked up by its parent process's signal handling routine, or become an orphan and be adopted by process 'init', before being destroyed by the periodically called `wait()`.
+> A : 
+
+When a process ends its execution and invokes `exit()`, it changes into terminated state, keeping its storage in the kernel-space memory to a minimum. It's called a *zombie process* before it's given a clean death by its parent's `wait()` call.
+
+A zombie process is eliminated either when its SIGCHLD is picked up by its parent process's signal handling routine, or become an orphan and be adopted by process 'init', before being destroyed by the periodically called `wait()`.
