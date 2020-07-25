@@ -40,7 +40,7 @@
 > A :
 
 - Benefits of multi-threading :
-  1. Responsiveness and multi-tasking
+  1. Responsiveness and multi-tasking : Still can exist some threads respond when a thread is blocked
   2. Ease in data sharing
   3. Economy : Can save memory and resources than creating processes. Besides, context-switch between processes is also costly
   4. Scalability : Threads may be running in parallel on different cores
@@ -74,15 +74,18 @@
 
 **6** unique processes are created :
 
-![image-20200325151656467](../pics/image-20200325151656467.png)
+![image-20200325151656467](../pics/process_hw3.png)
 
 > > b.
 
-**10** unique threads are created :
+**2** unique threads are created :
 
-![image-20200325152515920](../pics/image-20200325152515920.png)
+![image-20200325152515920](../pics/thread_hw3.png)
 
-> Note : The threads shown in the pic (1 & 2), are in two different processes actually
+> Note :
+We assume that 'unique xxx created' refers to the ones created by `create()` function.  
+Yet `fork()` numbers the original process.  
+Remind that threads only execute the code section allocated in `pthread_create()` parameter
 
 ### Problem 4
 
