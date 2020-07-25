@@ -214,6 +214,8 @@ do
 
    Take progress [`i`] as an example, if progress [`i`] is executing, it only changes its own parameter : `flag[i]` and global variable `turn`.
 
+   While no progress is in its critical section, `flag[i],flag[j]` are both `false`. Thus each of these processes can enter its critical section without being blocked.
+
 3. **Bounded waiting**. *No process would have to wait forever in order to enter its critical section*
 
    After process `i` or `j` has finished its execution of critical section, it will change its `flag` status into false, so that the other one is able to enter its critical section, therefore it won't end up waiting forever.
@@ -226,8 +228,15 @@ do
 
 - The strict alternation does not satisfy the **Requirement #3**, which is '*No process running outside its critical section should block other processes.*'
   - The reason is that if process 1 is in turn but not executing, it cannot pass the turn to process 0, which is waiting in the principal of strict alternation.
+
+<font color = coral>The following answer is **wrong**</font>  
 - Peterson's solution have a hidden problem that violates the **Requirement #3**, which is '*No process running outside its critical section should block other processes.*'
   - The priority inversion problem is brought by the conflict that a high priority process owns the CPU resources, but cannot enter the critical region to execute, while a low priority process sits in the critical region not scheduled for a long time. In this case, both processes are blocked.
+
+<font color = coral>The right answer</font>  
+- Peterson's solution satisfies all requirements.
+  - As for the problem of priority reversal, since the number of entering critical section by other processes is limited, the requirements can also be satisfied.
+  - *Definition of Bounded Waiting* : Bounded waiting, or bounded bypass means that the number of times a process is bypassed by another process after it has indicated its desire to enter the critical section is bounded by a function of the number of processes in the system. In Peterson's algorithm, a process will never wait longer than one turn for entrance to the critical section. (from Wikipedia - Peterson's algorithm)
 
 ### Problem 9
 
@@ -276,6 +285,7 @@ void up(semaphore *s)
 两个或两个以上的线程在执行过程中，由于竞争资源或者由于彼此通信而造成的一种阻塞的现象，准确的说，集合中的每一个进程都在等待只能由本集合中的其他进程才能引发的事件，那么该组进程是死锁的。
 
 - Deadlock is a phenomenon that two or more threads block each other when executing, due to a resource demand problem, that every thread in the group is waiting for a resource held by another thread, while holding some resources that others demand, forming one/several waiting circle(s).
+- In concurrent computing, a deadlock is a state in which each member of a group is waiting for another member, including itself, to take action, such as sending a message or more commonly releasing a lock. (from Wikipedia - deadlock)
 - The 4 requirements :
   1. **Requirement #1: Mutual Exclusion**
   2. **Requirement #2: Hold and Wait**
