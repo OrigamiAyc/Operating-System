@@ -8,7 +8,7 @@
 >
 > Explain the following terms：
 >
-> Fragmentation fault, TLB, Page fault, Demand paging, Thrashing 
+> Fragmentation fault, TLB, Page fault, Demand paging, Thrashing
 
 > A :
 
@@ -20,7 +20,7 @@
 	- Its purpose is to improve memory access performance when page table look incurs large overhead
 	- Its traits are fast (since it's part of the pipeline) and small
 - Page fault
-	- When the MMU finds that a virtual page involved in an instruction demand is invalid, the CPU then generates an interrupt called page fault
+	- When the MMU finds that a virtual page involved in an instruction demand is invalid (not in the memory), the CPU then generates an interrupt called page fault
 - Demand paging
 	- The allocation is done in an lazy way, that is the system only *says* that the memory is allocated, yet actually it's *not* until you really access it
 - Thrashing
@@ -85,7 +85,7 @@ We assume that the page-fault rate is $p$ , then we have :
 
 $100ns*(1-p)+(0.3*8ms+0.7*20ms)*p<200ns$
 
-Therefore, $p<6\cdot10^{-6}$
+Therefore, $p<6\cdot 10^{-6}$
 
 ### Question 5
 
@@ -111,14 +111,18 @@ LRO : 18 times
 | |7|2|3|1|2|5|3|4|6|6|7|1|0|5|4|6|2|3|0|
 | | |7|2|3|1|2|5|3|4|4|6|7|1|0|5|4|6|2|3|
 |t|t|t|t| |t|t|t|t|t| |t|t|t|t|t|t|t|t|t|
+
 FIFO : 17 times
+
 |7|2|3|1|2|5|3|4|6|7|7|1|0|5|4|6|2|3|0|1|
 |-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|
 |7|2|3|1|1|5|5|4|6|7|7|1|0|5|4|6|2|3|0|1|
 | |7|2|3|3|1|1|5|4|6|6|7|1|0|5|4|6|2|3|0|
 | | |7|2|2|3|3|1|5|4|4|6|7|1|0|5|4|6|2|3|
 |t|t|t|t| |t| |t|t|t| |t|t|t|t|t|t|t|t|t|
+
 Optimal : 13 times
+
 |7|2|3|1|2|5|3|4|6|7|7|1|0|5|4|6|2|3|0|1|
 |-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|
 |7|7|7|1|1|1|1|1|1|1|1|1|1|1|1|1|1|1|1|1|
@@ -153,6 +157,7 @@ Optimal : 13 times
 |1805|2150|2069|1212|2296|2800|544|1618|356|1523|4965|3681|
 |-|-|-|-|-|-|-|-|-|-|-|-|
 | | |2069|1212|2296|2800|544|1618|356|1523|4965|3681|
+
 $distance = (2150-1212)+(2800-1212)+(2800-544)+(1618-544)+\\(1618-356)+(4965-356)+(4965-3681)=13011$
 
 ##### SSTF
@@ -160,6 +165,7 @@ $distance = (2150-1212)+(2800-1212)+(2800-544)+(1618-544)+\\(1618-356)+(4965-356
 |1805|2150|2069|1212|2296|2800|544|1618|356|1523|4965|3681|
 |-|-|-|-|-|-|-|-|-|-|-|-|
 | | |2069|2296|2800|3681|4965|1618|1523|1212|544|356|
+
 $distance=(2150-2069)+(4965-2069)+(4965-356)=7586$
 
 ##### SCAN (4965 -> 4999 -> 2069)
@@ -167,6 +173,7 @@ $distance=(2150-2069)+(4965-2069)+(4965-356)=7586$
 |1805|2150|2069|1212|2296|2800|544|1618|356|1523|4965|3681|
 |-|-|-|-|-|-|-|-|-|-|-|-|
 | | |2296|2800|3681|4965|2069|1618|1523|1212|544|356|
+
 $distance=(4999-2150)+(4999-356)=7492$
 
 ##### LOOK (4965 -> 2069)
@@ -174,6 +181,7 @@ $distance=(4999-2150)+(4999-356)=7492$
 |1805|2150|2069|1212|2296|2800|544|1618|356|1523|4965|3681|
 |-|-|-|-|-|-|-|-|-|-|-|-|
 | | |2296|2800|3681|4965|2069|1618|1523|1212|544|356|
+
 $distance=(4965-2150)+(4965-356)=7424$
 
 ##### C-SCAN (4965 -> 4999 -> 0 ->356)
@@ -181,6 +189,7 @@ $distance=(4965-2150)+(4965-356)=7424$
 |1805|2150|2069|1212|2296|2800|544|1618|356|1523|4965|3681|
 |-|-|-|-|-|-|-|-|-|-|-|-|
 | | |2296|2800|3681|4965|356|544|1212|1523|1618|2069|
+
 $distance=(4999-2150)+4999+2069=9917$
 
 ##### C-LOOK (4965 -> 356)
@@ -188,4 +197,5 @@ $distance=(4999-2150)+4999+2069=9917$
 |1805|2150|2069|1212|2296|2800|544|1618|356|1523|4965|3681|
 |-|-|-|-|-|-|-|-|-|-|-|-|
 | | |2296|2800|3681|4965|356|544|1212|1523|1618|2069|
+
 $distance=(4965-2150)+(4965-356)+(2069-356)=9137$

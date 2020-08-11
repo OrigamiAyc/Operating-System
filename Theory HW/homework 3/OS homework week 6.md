@@ -83,9 +83,17 @@
 ![image-20200325152515920](../pics/thread_hw3.png)
 
 > Note :
-We assume that 'unique xxx created' refers to the ones created by `create()` function.  
-Yet `fork()` numbers the original process.  
-Remind that threads only execute the code section allocated in `pthread_create()` parameter
+> We assume that 'unique xxx created' refers to the ones created by `create()` function.  
+> Yet `fork()` numbers the original process.  
+> Remind that threads only execute the code section allocated in `pthread_create()` parameter.
+>
+> Well... Actually there are different cases, let's take a look of what's said by the OS Concept Essentials book: 
+>
+> > If one thread in a program calls fork(), does the new process duplicate all threads, or is the new process single-threaded? Some UNIX systems have chosen to have two versions of fork(), one that duplicates all threads and another that duplicates only the thread that invoked the fork() system call.
+>
+> Therefore if the `fork()` duplicates all threads when main thread calls it, maybe it should be like this:
+>
+> ![thread_all_cloned](../pics/process_thread_hw3.png)
 
 ### Problem 4
 
