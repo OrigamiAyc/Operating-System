@@ -8,7 +8,7 @@
 
 > Q : Including the initial parent process, how many processes are created by the program shown in Figure 1?
 
-![image-20200313210549010](/Users/lapland/Library/Application Support/typora-user-images/image-20200313210549010.png)
+![image-20200313210549010](../pics/image-20200313210549010.png)
 
 
 
@@ -20,7 +20,7 @@
 
 > Q : Explain the circumstances under which the line of code marked printf (‘‘LINE J’’) in Figure 2 will be reached.
 
-<img src="/Users/lapland/Library/Application Support/typora-user-images/image-20200313210600306.png" alt="image-20200313210600306" style="zoom:100%;" />
+<img src="../pics/image-20200313210600306.png" alt="image-20200313210600306" style="zoom:100%;" />
 
 >A : 
 
@@ -30,7 +30,7 @@ When the `execlp()` function call is failed to be called, it will not reset the 
 
 > Q : Using the program in Figure 3, identify the values of pid at lines A, B, C, and D. (Assume that the actual pids of the parent and child are 2600 and 2603, respectively.)
 
-<img src="/Users/lapland/Library/Application Support/typora-user-images/image-20200313211941836.png" alt="image-20200313211941836" style="zoom:100%;" />
+<img src="../pics/image-20200313211941836.png" alt="image-20200313211941836" style="zoom:100%;" />
 
 > A :
 
@@ -47,7 +47,7 @@ The PID values are as the table below :
 
 > Q : Using the program shown in Figure 4, explain what the output will be at lines X and Y.
 
-<img src="/Users/lapland/Library/Application Support/typora-user-images/image-20200313212707825.png" alt="image-20200313212707825" style="zoom:100%;" />
+<img src="../pics/image-20200313212707825.png" alt="image-20200313212707825" style="zoom:100%;" />
 
 > A :
 
