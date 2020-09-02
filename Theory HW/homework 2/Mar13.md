@@ -53,7 +53,7 @@ The PID values are as the table below :
 
 ```powershell
 CHILD: 0 CHILD: -1 CHILD: -4 CHILD: -9 CHILD: -16 # LINE X
-PARENT: 0 PARENT: -1 PARENT: -4 PARENT: -9 PARENT: -16 # LINE Y
+PARENT: 0 PARENT: 1 PARENT: 2 PARENT: 3 PARENT: 4 # LINE Y
 ```
 
 > Note : Cause this program does *not* have a line break at its output...So the results were put altogether, yet it seems that there *is* a blank space between ':' and '%'.

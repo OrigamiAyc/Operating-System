@@ -44,7 +44,11 @@ $50+50=100ns$（visit page table & use the address to visit statistics)
 
 **b.**
 
-$75\%*(2+50)+25\%*(2+50+50)=64.5ns$
+$75\%*(2+50)+25\%*(50+50)=64.5ns$
+
+> Note :
+>
+> The accessing of TLB and page table (in memory) are simultaneous, thus the loading of page table has already begun even if TLB missed
 
 ### Question 3
 
@@ -103,7 +107,7 @@ Therefore, $p<6\cdot 10^{-6}$
 >
 > The first row is the page reference string, the last row is whether page faults would occur (t for true)
 
-LRO : 18 times
+LRU : 18 times
 
 |7|2|3|1|2|5|3|4|6|7|7|1|0|5|4|6|2|3|0|1|
 |-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|

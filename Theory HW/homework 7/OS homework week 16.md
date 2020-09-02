@@ -120,3 +120,5 @@ DMA方式：数据交换不经过CPU，占用CPU不访问内存的时间，几�
 	- All I/O instructions defined to be privileged
 - **Power management, etc.**
 
+填空，名词解释，简答题，综合题（算法&计算）
+

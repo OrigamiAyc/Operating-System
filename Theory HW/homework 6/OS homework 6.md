@@ -18,13 +18,15 @@ Read &Write are *both* access operations, RRW **do not** need to read parity blo
 
 **a. An update of one block of data**
 
-- RAID-5 : 4 blocks (The target block (R&W) and the parity block (R&W)) (RMW)
-- RAID-6 : 6 blocks (The target block (R&W) and the parity blocks (R&W)) (RMW)
+- RAID-5 : 2 blocks (The target block (R&W) and the parity block (R&W)) (RMW)
+- RAID-6 : 3 blocks (The target block (R&W) and the parity blocks (R&W)) (RMW)
 
 **b. An update of seven continuous blocks of data**
 
 - RAID-5 : 10 blocks (Read B4 and write A1-A4, Ap, B1-B3, Bp) (RRW)
 - RAID-6 : 16 blocks (Read Cp, Cq, C1and write A1-A3, Ap-Aq, B1-B3, Bp-Bq, C1, Cp-Cq) (Row 1,2: RRW; Row 3: RMW)
+
+> Note: the problem said **blocks** instead of **times**, therefore read and write to one block is calculated as <font color=deeppink>one time</font>
 
 Data is stored in form of this: (I smeared unchanged blocks)
 
